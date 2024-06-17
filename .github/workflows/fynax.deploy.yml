@@ -1,0 +1,54 @@
+name: Deploy to GAE Fynax Dashboard
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  deploy:
+    name: Deploying to Google Cloud
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Creating runtime env_config.js which has config for company
+      run: |
+        touch ./public/env_config.js
+        echo "window.localStorage.setItem('COMPANY_NAME', 'Fynax');" >> ./public/env_config.js
+        echo "window.localStorage.setItem('TITLE','Fynax Analytics');" >> ./public/env_config.js
+        echo "window.localStorage.setItem('LINK','http://www.fynax.co.uk/');" >> ./public/env_config.js
+        echo "window.localStorage.setItem('ICON','https://www.fynax.io/wp-content/uploads/2021/01/logo_main.svg');" >> ./public/env_config.js
+    - name: Setup Node
+      uses: actions/setup-node@v2
+    - name: Listing
+      run: ls
+    - name: Building frontend
+      run: |
+          ls
+          npm install --force
+          CI= npm run build
+    - name: Deploy Development to App Engine
+      if: github.ref == 'refs/heads/dev'
+      id: deploydev
+      uses: google-github-actions/deploy-appengine@v0.2.0
+      with:
+        deliverables: fynax.dev.app.yaml
+        version: v1
+        project_id: ${{ secrets.GCLOUD_PROJECTID }}
+        credentials: ${{ secrets.GCLOUD_APP_DEPLOYER_ACCOUNT }}
+    - name: Deploy Production to App Engine
+      if: github.ref == 'refs/heads/master'
+      id: deployprod
+      uses: google-github-actions/deploy-appengine@v0.2.0
+      with:
+        deliverables: fynax.prod.app.yaml
+        version: v1
+        project_id: ${{ secrets.GCLOUD_PROJECTID }}
+        credentials: ${{ secrets.GCLOUD_APP_DEPLOYER_ACCOUNT }}

@@ -1,0 +1,93 @@
+{
+  "name": "dashboardfront",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "14 || 15 || 16",
+    "npm": "=<6"
+  },
+  "dependencies": {
+    "@asseinfo/react-kanban": "2.2.0",
+    "@datagridxl/datagridxl2": "^2.0.11",
+    "@devexpress/dx-react-chart": "^3.0.5",
+    "@devexpress/dx-react-chart-material-ui": "^3.0.5",
+    "@devexpress/dx-react-core": "^3.0.5",
+    "@emotion/cache": "11.7.1",
+    "@emotion/react": "11.7.1",
+    "@emotion/styled": "11.6.0",
+    "@fullcalendar/daygrid": "5.10.0",
+    "@fullcalendar/interaction": "5.10.0",
+    "@fullcalendar/react": "5.10.0",
+    "@fullcalendar/timegrid": "5.10.0",
+    "@mui/icons-material": "5.4.1",
+    "@mui/material": "5.4.1",
+    "@mui/styled-engine": "5.4.1",
+    "@react-jvectormap/core": "1.0.1",
+    "@react-jvectormap/world": "1.0.0",
+    "@testing-library/jest-dom": "5.16.2",
+    "@testing-library/react": "12.1.2",
+    "@testing-library/user-event": "13.5.0",
+    "apexcharts": "^3.35.5",
+    "axios": "^0.27.2",
+    "chart.js": "3.4.1",
+    "chartjs-plugin-labels": "^1.1.0",
+    "chartjs-plugin-piechart-outlabels": "^0.1.4",
+    "chroma-js": "2.4.2",
+    "d3-treemap": "^0.1.0",
+    "dropzone": "5.9.2",
+    "flatpickr": "4.6.9",
+    "formik": "2.2.9",
+    "framer-motion": "6.2.4",
+    "html-react-parser": "1.4.8",
+    "js-cookie": "^3.0.1",
+    "prop-types": "15.8.1",
+    "react": "17.0.2",
+    "react-apexcharts": "^1.3.6",
+    "react-chartjs-2": "3.0.4",
+    "react-dom": "17.0.2",
+    "react-flatpickr": "3.10.7",
+    "react-github-btn": "1.2.1",
+    "react-google-charts": "^4.0.0",
+    "react-images-viewer": "1.7.1",
+    "react-papaparse": "^4.1.0",
+    "react-quill": "1.3.5",
+    "react-router-dom": "6.2.1",
+    "react-scripts": "5.0.0",
+    "react-table": "7.7.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.1.3",
+    "shade-generator": "^1.2.7",
+    "stream": "^0.0.2",
+    "stylis": "4.0.13",
+    "stylis-plugin-rtl": "2.1.1",
+    "underscore": "^1.13.6",
+    "uuid": "8.3.2",
+    "web-vitals": "2.1.4",
+    "yup": "0.32.11"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
